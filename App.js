@@ -12,7 +12,7 @@ import Datetime from "./components/Datetime.js";
 
 import { Dimensions } from "react-native";
 
-const image = require("./assets/backgroundimg/white.webp");
+const image = require("./assets/backgroundimg/cloudy.jpeg");
 
 export default function App() {
   return (
