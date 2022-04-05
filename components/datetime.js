@@ -1,10 +1,18 @@
 import React from 'react'
+import { View , Text} from 'react-native-web'
 
-const datetime = () => {
+const Datetime = () => {
   return (
     <view>
+<View>
+<View></View>
+<View></View>
+<View></View>
+</View>
 
-
+<View>
+    
+</View>
     </view>
   )
 }

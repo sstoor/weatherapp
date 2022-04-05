@@ -8,22 +8,25 @@ import {
   SafeAreaView,
 } from "react-native";
 
-const image = require("./assets/backgroundimg/sunny.webp");
+import Datetime from "./components/datetime";
+
+import { Dimensions } from "react-native";
+
+const image = require("./assets/backgroundimg/white.webp");
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <ImageBackground
-        source={image}
-        style={{ flex: 1, resizeMode: "cover", width: 1080 }}>
+      <ImageBackground source={image} style={styles.image}>
         <SafeAreaView>
-          <Text>Open up App.js to start working onbhjbjhvhj your app!</Text>
+          <Text>Open up App.js tdo start  your app!</Text>
           <StatusBar style="auto" />
         </SafeAreaView>
       </ImageBackground>
     </View>
   );
 }
+const win = Dimensions.get("window");
 
 const styles = StyleSheet.create({
   container: {
@@ -31,5 +34,12 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+  },
+
+  image: {
+    flex: 1,
+    alignSelf: "stretch",
+    width: win.width,
+    height: win.height,
   },
 });
