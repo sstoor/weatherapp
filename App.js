@@ -8,7 +8,7 @@ import {
   SafeAreaView,
 } from "react-native";
 
-import Datetime from "./components/datetime";
+import Datetime from "./components/Datetime.js";
 
 import { Dimensions } from "react-native";
 
@@ -19,8 +19,10 @@ export default function App() {
     <View style={styles.container}>
       <ImageBackground source={image} style={styles.image}>
         <SafeAreaView>
-          <Text>Open up App.js tdo start  your app!</Text>
-          <StatusBar style="auto" />
+          <Datetime />
+
+        
+       
         </SafeAreaView>
       </ImageBackground>
     </View>
