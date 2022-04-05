@@ -1,11 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  ImageBackground,
+  SafeAreaView,
+} from "react-native";
+
+const image = require("./assets/backgroundimg/sunny.webp");
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <ImageBackground
+        source={image}
+        style={{ flex: 1, resizeMode: "cover", width: 1080 }}>
+        <SafeAreaView>
+          <Text>Open up App.js to start working onbhjbjhvhj your app!</Text>
+          <StatusBar style="auto" />
+        </SafeAreaView>
+      </ImageBackground>
     </View>
   );
 }
@@ -13,8 +28,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
