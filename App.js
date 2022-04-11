@@ -10,6 +10,8 @@ import {
 
 import Datetime from "./components/Datetime.js";
 
+import WeatherScroll from "./components/WeatherScroll.js";
+
 import { Dimensions } from "react-native";
 
 const image = require("./assets/backgroundimg/cloudy.jpeg");
@@ -20,9 +22,7 @@ export default function App() {
       <ImageBackground source={image} style={styles.image}>
         <SafeAreaView>
           <Datetime />
-
-        
-       
+         <WeatherScroll />
         </SafeAreaView>
       </ImageBackground>
     </View>
