@@ -10,34 +10,34 @@ import {
 
 const WeatherData = (props) => {
   return (
-    <View>
-      <Text>{props.title}</Text>
-      <Text>{props.value}</Text>
-      <Text>{props.unit}</Text>
+    <View style={styles.weatherItem}>
+      <Text style={styles.weatherItemTitle}>{props.title} :  </Text>
+      <Text style = {styles.weatherItemValue}>{props.value} {props.unit}</Text>
     </View>
   );
 };
 
 const Datetime = () => {
   return (
-    <View style = {styles.container}>
+    <View style={styles.container}>
       <View>
         <View>
-          <Text style = {styles.heading}>7:40 Am</Text>
+          <Text style={styles.heading}>7:40 Am</Text>
         </View>
         <View>
           <Text style={styles.subheading}>Thursday, 18 March</Text>
         </View>
-        <View>
-          <WeatherData title="Humidity" value="50" unit="Percentage" />
+        <View style={styles.weatherItemcontainer}>
+          <WeatherData title="Humidity" value="50" unit="%" />
           <WeatherData title="Sunrise" value="7:30" unit="Am"></WeatherData>
           <WeatherData title="Sunset" value="6:30" unit="Pm"></WeatherData>
+          <WeatherData title="Windspeed" value="15" unit="km/h"></WeatherData>
         </View>
       </View>
 
       <View style={styles.rightalign}>
         <Text style={styles.timezone}>Gold Coast, Australia</Text>
-        <Text style={styles.latlong}>420.69Lo 620.8Le</Text>
+        <Text style={styles.latlong}>420LO 6208LI</Text>
       </View>
     </View>
   );
@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     justifyContent: "space-between",
+    padding: 15,
   },
 
 heading:{
@@ -86,6 +87,36 @@ latlong:{
 
 fontSize: 15,
 color: "darkblue",
+
+
+},
+
+weatherItemcontainer:{
+backgroundColor: "#18181b99",
+borderRadius: 20,
+padding: 20,
+alignContent: "stretch"
+
+},
+
+
+weatherItem:{
+
+flexDirection: "row",
+justifyContent: "space-between",
+
+},
+
+weatherItemTitle:{
+color: "white",
+fontSize: 14,
+fontWeight: "700",
+
+
+},
+
+weatherItemValue:{
+color: "white",
 
 
 }
