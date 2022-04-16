@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   Text,
@@ -11,21 +11,54 @@ import {
 const WeatherData = (props) => {
   return (
     <View style={styles.weatherItem}>
-      <Text style={styles.weatherItemTitle}>{props.title} :  </Text>
-      <Text style = {styles.weatherItemValue}>{props.value} {props.unit}</Text>
+      <Text style={styles.weatherItemTitle}>{props.title} : </Text>
+      <Text style={styles.weatherItemValue}>
+        {props.value} {props.unit}
+      </Text>
     </View>
   );
 };
 
 const Datetime = () => {
+
+var months = (('Jan'), ('Feb'), ('March'), ('April'));
+
+  const [time, setTime] = useState("");
+  const [date, setDate] = useState("");
+  
+
+  const [hours, setHours] = useState("");
+  useEffect(() => {
+    setInterval(() => {
+      const time = new Date();
+      const hour = time.getHours();
+      const minute = time.getMinutes();
+      const seconds = time.getSeconds();
+
+      const day = time.getDate();
+      const month = time.getMonth();
+      const year = time.getFullYear();
+
+      setTime(
+        (hour > 12 ? hour - 12 : hour) +
+          ":" +
+          (minute < 10 ? "0" + minute : minute) +
+          " " +
+          (hour < 12 ? "Am" : "Pm")
+      );
+
+      setDate(day + ":" +  months[2]);
+    }, 1000);
+  }, []);
+
   return (
     <View style={styles.container}>
       <View>
         <View>
-          <Text style={styles.heading}>7:40 Am</Text>
+          <Text style={styles.heading}>{time}</Text>
         </View>
         <View>
-          <Text style={styles.subheading}>Thursday, 18 March</Text>
+          <Text style={styles.subheading}>Thursday, {date} March</Text>
         </View>
         <View style={styles.weatherItemcontainer}>
           <WeatherData title="Humidity" value="50" unit="%" />
@@ -43,7 +76,6 @@ const Datetime = () => {
   );
 };
 
-
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
@@ -51,78 +83,55 @@ const styles = StyleSheet.create({
     padding: 15,
   },
 
-heading:{
-fontSize: 45,
-color: "cyan",
-fontWeight: 'bold',
-margin: 10,
+  heading: {
+    fontSize: 45,
+    color: "cyan",
+    fontWeight: "bold",
+    margin: 10,
+  },
 
+  subheading: {
+    fontSize: 20,
+    color: "darkcyan",
+    fontWeight: "300",
+  },
 
-},
+  rightalign: {
+    textAlign: "right",
+    margin: 20,
+  },
 
-subheading:{
+  timezone: {
+    color: "cyan",
+    fontSize: 15,
+  },
 
-fontSize: 20,
-color: "darkcyan",
-fontWeight: "300"
+  latlong: {
+    fontSize: 15,
+    color: "darkblue",
+  },
 
-},
+  weatherItemcontainer: {
+    backgroundColor: "#18181b99",
+    borderRadius: 20,
+    padding: 20,
+    alignContent: "stretch",
+  },
 
-rightalign:{
+  weatherItem: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
 
-textAlign: "right",
-margin: 20,
+  weatherItemTitle: {
+    color: "white",
+    fontSize: 14,
+    fontWeight: "700",
+  },
 
-},
-
-timezone:{
-
-color: "cyan",
-fontSize: 15,
-
-},
-
-
-latlong:{
-
-fontSize: 15,
-color: "darkblue",
-
-
-},
-
-weatherItemcontainer:{
-backgroundColor: "#18181b99",
-borderRadius: 20,
-padding: 20,
-alignContent: "stretch"
-
-},
-
-
-weatherItem:{
-
-flexDirection: "row",
-justifyContent: "space-between",
-
-},
-
-weatherItemTitle:{
-color: "white",
-fontSize: 14,
-fontWeight: "700",
-
-
-},
-
-weatherItemValue:{
-color: "white",
-
-
-}
-
-
+  weatherItemValue: {
+    color: "white",
+  },
 });
-
 
 export default Datetime;
