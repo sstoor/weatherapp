@@ -20,12 +20,8 @@ const WeatherData = (props) => {
 };
 
 const Datetime = () => {
-
-var months = (('Jan'), ('Feb'), ('March'), ('April'));
-
   const [time, setTime] = useState("");
   const [date, setDate] = useState("");
-  
 
   const [hours, setHours] = useState("");
   useEffect(() => {
@@ -47,7 +43,7 @@ var months = (('Jan'), ('Feb'), ('March'), ('April'));
           (hour < 12 ? "Am" : "Pm")
       );
 
-      setDate(day + ":" +  months[2]);
+      setDate(day + " " + (month == 4 ? "April" : "March"));
     }, 1000);
   }, []);
 
@@ -58,7 +54,7 @@ var months = (('Jan'), ('Feb'), ('March'), ('April'));
           <Text style={styles.heading}>{time}</Text>
         </View>
         <View>
-          <Text style={styles.subheading}>Thursday, {date} March</Text>
+          <Text style={styles.subheading}>Thursday, {date}</Text>
         </View>
         <View style={styles.weatherItemcontainer}>
           <WeatherData title="Humidity" value="50" unit="%" />
